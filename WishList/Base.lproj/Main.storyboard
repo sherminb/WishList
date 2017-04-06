@@ -93,6 +93,9 @@
                                                         <constraint firstAttribute="trailing" secondItem="QNW-mG-7UN" secondAttribute="trailing" id="lGs-g9-0P0"/>
                                                         <constraint firstItem="Vih-mx-SGG" firstAttribute="centerY" secondItem="Yoq-e2-u53" secondAttribute="centerY" id="q5k-ty-KVa"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>

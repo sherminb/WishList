@@ -22,6 +22,7 @@
 		2A9C92B31E96E43C00D38E14 /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C92AB1E96E43C00D38E14 /* Store+CoreDataProperties.swift */; };
 		2A9C92B41E96E43C00D38E14 /* ItemType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C92AC1E96E43C00D38E14 /* ItemType+CoreDataClass.swift */; };
 		2A9C92B51E96E43C00D38E14 /* ItemType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C92AD1E96E43C00D38E14 /* ItemType+CoreDataProperties.swift */; };
+		2A9C92B81E96F21B00D38E14 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C92B71E96F21B00D38E14 /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		2A9C92AB1E96E43C00D38E14 /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2A9C92AC1E96E43C00D38E14 /* ItemType+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2A9C92AD1E96E43C00D38E14 /* ItemType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2A9C92B71E96F21B00D38E14 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		2A9C92B61E96F17300D38E14 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2A9C92B71E96F21B00D38E14 /* CustomView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				2A9C92661E96D9B100D38E14 /* AppDelegate.swift in Sources */,
 				2A9C92B51E96E43C00D38E14 /* ItemType+CoreDataProperties.swift in Sources */,
 				2A9C92B21E96E43C00D38E14 /* Store+CoreDataClass.swift in Sources */,
+				2A9C92B81E96F21B00D38E14 /* CustomView.swift in Sources */,
 				2A9C926E1E96D9B100D38E14 /* WishList.xcdatamodeld in Sources */,
 				2A9C92AE1E96E43C00D38E14 /* Image+CoreDataClass.swift in Sources */,
 			);
