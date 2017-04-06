@@ -95,6 +95,7 @@
 		2A9C92641E96D9B100D38E14 /* WishList */ = {
 			isa = PBXGroup;
 			children = (
+				2A9C92B61E96F17300D38E14 /* View */,
 				2A9C92941E96E14500D38E14 /* Model */,
 				2A9C92651E96D9B100D38E14 /* AppDelegate.swift */,
 				2A9C92671E96D9B100D38E14 /* MainVC.swift */,
@@ -137,6 +138,13 @@
 				2A9C92A71E96E43C00D38E14 /* Image+CoreDataProperties.swift */,
 			);
 			name = Generated;
+			sourceTree = "<group>";
+		};
+		2A9C92B61E96F17300D38E14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
