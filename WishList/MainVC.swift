@@ -120,7 +120,19 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
         ad.saveContext()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        if let objects=controller.fetchedObjects, objects.count>0{
+            let item = objects[indexPath.row]
+            performSegue(withIdentifier: "DetailsVCEdit", sender: item)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailsVCEdit"{
+            if let dest=segue.destination as? DetailsVc{
+                if let item=sender as? Item{
+                    dest.itemToEdit=item
+                }
+            }
+        }
     }
 
 }

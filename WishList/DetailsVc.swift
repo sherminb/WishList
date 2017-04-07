@@ -98,7 +98,13 @@ class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     }
     
     @IBAction func savePressed(_ sender: Any) {
-        let item=Item(context: context)
+        var item:Item!
+        
+        if itemToEdit == nil{
+            item=Item(context: context)
+        }else{
+            item = itemToEdit
+        }
         
         if let title=titleField.text{
             item.title=title
@@ -115,6 +121,6 @@ class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
         
         ad.saveContext()
         
-        navigationController?.popViewController(animated: true)//go back to the main page
+          _ = navigationController?.popViewController(animated: true)//go back to the main page
     }
 }
