@@ -17,15 +17,10 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var detailsLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+   
+    func configureCell( item:Item){
+        titleLabel.text=item.title
+        detailsLabel.text=item.details
+        priceLabel.text="$\(item.price)"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

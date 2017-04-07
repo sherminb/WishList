@@ -22,5 +22,6 @@ extension Item {
     @NSManaged public var image: Image?
     @NSManaged public var store: Store?
     @NSManaged public var itemType: ItemType?
+    @NSManaged public var price: Double
 
 }

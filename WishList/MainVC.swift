@@ -23,6 +23,8 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
         
         tableView.delegate=self
         tableView.dataSource=self
+        //generateData()
+        attemptFetch()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,19 +32,38 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell=tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        configureCell(cell: cell,indexPath:indexPath)
+        
+        return cell
+    }
+    func configureCell(cell:ItemCell,indexPath:IndexPath){
+        let item=controller.object(at: indexPath)
+        cell.configureCell(item: item)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections=controller.sections{
+            return sections[section].numberOfObjects
+        }
         return 0
     }
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections=controller.sections{
+            return sections.count
+        }
         return 0
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     func attemptFetch(){
         let fetchRequest:NSFetchRequest<Item>=Item.fetchRequest()
         let dateSort=NSSortDescriptor(key: "created", ascending: false)
         fetchRequest.sortDescriptors=[dateSort]
         controller=NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        controller.delegate=self
+        
         do{
             try controller.performFetch()
         }catch{
@@ -72,6 +93,7 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
         case.update:
             if let index=indexPath{
                 let cell=tableView.cellForRow(at: index) as! ItemCell
+                configureCell(cell: cell, indexPath: index)
             }
             break
         case.move:
@@ -83,6 +105,22 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
             }
             break
         }
+    }
+    func generateData(){
+        let item=Item(context: context)
+        item.title="iphone 7"
+        item.price=600
+        item.details="it's about time"
+        
+        let item2=Item(context:context)
+        item2.title="MB shoes"
+        item2.price=1000
+        item2.details="One day i will own these beauties!"
+        
+        ad.saveContext()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
     }
 
 }
