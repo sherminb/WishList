@@ -139,7 +139,7 @@
                     <connections>
                         <outlet property="segment" destination="I7T-6t-m9n" id="Dd1-St-QtB"/>
                         <outlet property="tableView" destination="N8u-Y9-RZA" id="nab-Se-fda"/>
-                        <segue destination="EsL-9N-eU0" kind="showDetail" identifier="DetailsVCEdit" id="nou-8Z-FA1"/>
+                        <segue destination="EsL-9N-eU0" kind="show" identifier="DetailsVCEdit" id="NLl-Qa-FU4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -214,6 +214,9 @@
                                     <constraint firstAttribute="height" constant="100" id="Pmb-Bi-Dar"/>
                                     <constraint firstAttribute="width" constant="100" id="dVT-e3-tx2"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeImagePressed:" destination="EsL-9N-eU0" eventType="touchUpInside" id="MKz-rY-JkK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-Xq-EKs">
                                 <rect key="frame" x="131.5" y="305" width="113" height="24"/>
@@ -254,6 +257,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="13Q-zj-NQM">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="uik-FW-Ip4">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="EsL-9N-eU0" id="Hho-hL-Xfy"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -261,6 +267,7 @@
                         <outlet property="detailsField" destination="TKA-ij-IuO" id="2aj-XZ-Zgg"/>
                         <outlet property="priceField" destination="exz-ts-oeF" id="1nc-ga-m2C"/>
                         <outlet property="storePcker" destination="zXI-N5-Suc" id="VGY-G2-QAJ"/>
+                        <outlet property="thumbImage" destination="cMs-x3-o8H" id="3TV-H4-8QP"/>
                         <outlet property="titleField" destination="WcJ-oQ-MEr" id="RTr-6N-05A"/>
                     </connections>
                 </viewController>
@@ -292,6 +299,6 @@
         <image name="imagePick" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nou-8Z-FA1"/>
+        <segue reference="NLl-Qa-FU4"/>
     </inferredMetricsTieBreakers>
 </document>
