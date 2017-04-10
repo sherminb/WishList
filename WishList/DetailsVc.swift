@@ -9,9 +9,12 @@
 import UIKit
 import CoreData
 
-class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
     @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var storePcker: UIPickerView!
+    
+    @IBOutlet weak var thumbImage: UIImageView!
     
     @IBOutlet weak var detailsField: CustomTextField!
     @IBOutlet weak var priceField: CustomTextField!
@@ -20,11 +23,17 @@ class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     var itemToEdit:Item?
     
+    var imagePicker:UIImagePickerController!
+    
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        
         storePcker.dataSource=self
         storePcker.delegate=self
+        
+        imagePicker=UIImagePickerController()
+        imagePicker.delegate=self
         
         //setupStores()
         fetchStores()
@@ -121,6 +130,25 @@ class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
         
         ad.saveContext()
         
-          _ = navigationController?.popViewController(animated: true)//go back to the main page
+          //self.dismiss(animated: true, completion: nil)
+         _ = navigationController?.popViewController(animated: true)
+    }
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            ad.saveContext()
+        }
+        //self.dismiss(animated: true, completion: nil)
+         _ = navigationController?.popViewController(animated: true)
+    }
+    @IBAction func changeImagePressed(_ sender: Any) {
+        present(imagePicker, animated: true,completion:  nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image=info[UIImagePickerControllerOriginalImage] as? UIImage{
+            thumbImage.image=image
+            
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 }
