@@ -57,7 +57,7 @@ class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UI
                 }
             }
         }
-       
+        thumbImage.image=item.image?.data as? UIImage
         
         
     }
@@ -128,6 +128,11 @@ class DetailsVc: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UI
         }
         item.store=stores[storePcker.selectedRow(inComponent: 0)]
         
+        if let img=thumbImage.image{
+            var image=Image(context: context)
+            image.data=img
+            item.image=image
+        }
         ad.saveContext()
         
           //self.dismiss(animated: true, completion: nil)

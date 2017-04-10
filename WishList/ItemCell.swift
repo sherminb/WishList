@@ -22,5 +22,6 @@ class ItemCell: UITableViewCell {
         titleLabel.text=item.title
         detailsLabel.text=item.details
         priceLabel.text="$\(item.price)"
+        thumbnail.image=item.image?.data as? UIImage
     }
 }
