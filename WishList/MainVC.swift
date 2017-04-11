@@ -11,6 +11,7 @@ import CoreData
 
 class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetchedResultsControllerDelegate{
     
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
     
@@ -58,8 +59,18 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
     }
     func attemptFetch(){
         let fetchRequest:NSFetchRequest<Item>=Item.fetchRequest()
+        
         let dateSort=NSSortDescriptor(key: "created", ascending: false)
-        fetchRequest.sortDescriptors=[dateSort]
+        let priceSort=NSSortDescriptor(key: "price", ascending: false)
+        let titleSort=NSSortDescriptor(key: "title", ascending: false)
+        
+        if segment.selectedSegmentIndex == 0{
+            fetchRequest.sortDescriptors=[dateSort]
+        }else if segment.selectedSegmentIndex == 1{
+            fetchRequest.sortDescriptors=[priceSort]
+        }else if segment.selectedSegmentIndex == 2{
+            fetchRequest.sortDescriptors=[titleSort]
+        }
         controller=NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         
         controller.delegate=self
@@ -105,6 +116,10 @@ class MainVC: UIViewController ,UITableViewDelegate,UITableViewDataSource,NSFetc
             }
             break
         }
+    }
+    @IBAction func segmentUpdate(_ sender: Any) {
+        attemptFetch()
+        tableView.reloadData()
     }
     func generateData(){
         let item=Item(context: context)
